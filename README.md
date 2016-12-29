@@ -13,5 +13,5 @@ http://dev.onenote.com/docs#/reference/get-notebooks/v10menotesnotebooksidselect
 - register your App at https://account.live.com/developers/applications and get your *client_id and client_secret*
 - open the URL from OneNote.get_authorize_url() in a browser to grant access of this app to the user notebooks
 - extract (manually) from the redirect URL the authentication *code*
-- get your initial token (not yet implemented)
+- get your initial token (not yet implemented but with comments in OneNote.get_token())
 - make your requests
