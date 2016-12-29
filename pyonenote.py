@@ -40,9 +40,50 @@ class OAuth():
         return url
 
     def get_token(self):
+        """
+        Make the following request with e.g. postman:
+        POST https://login.live.com/oauth20_token.srf
+        Content-Type:application/x-www-form-urlencoded
+
+        grant_type:authorization_code
+        client_id:cda3ffaa-2345-a122-3454-adadc556e7bf
+        client_secret:AABfsafd6Q5d1VZmJQNsdac
+        code:111111111-1111-1111-1111-111111111111
+        redirect_uri:https://localhost
+        
+        OneNote will return as result:
+        {
+          "token_type": "bearer",
+          "expires_in": 3600,
+          "scope": "wl.signin wl.offline_access wl.basic office.onenote_create office.onenote",
+          "access_token": "AxxdWR1DBAAUGCCXc8wU/....",
+          "refresh_token": "DR3DDEQJPCiM2aACbIYa....",
+          "user_id": "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+        }
+        """
         raise NotImplementedError("")
 
     def refresh_token(self):
+        """
+        Make the following reqest to refresh you token with e.g. postman:
+        POST https://login.live.com/oauth20_token.srf
+        Content-Type:application/x-www-form-urlencoded
+
+        grant_type:refresh_token
+        client_id:cda3ffaa-2345-a122-3454-adadc556e7bf
+        client_secret:AABfsafd6Q5d1VZmJQNsdac
+        refresh_token:DR3DDEQJPCiM2aACbIYa....
+        redirect_uri:https://localhost
+        -->
+        {
+          "token_type": "bearer",
+          "expires_in": 3600,
+          "scope": "wl.signin wl.offline_access wl.basic office.onenote_create office.onenote",
+          "access_token": "EAFSDTBRB$/UGCCXc8wU/zFu9QnLdZXy+YnElFkAAW...",
+          "refresh_token": "DSFDSGSGFABDBGFGBFGF5435kFGDd2J6Bco2Pv2ss...",
+          "user_id": "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+        }
+        """
         url = 'https://login.live.com/oauth20_token.srf'
         headers = {"Content-Type": "application/x-www-form-urlencoded"}
         data = {"grant_type": "refresh_token",
